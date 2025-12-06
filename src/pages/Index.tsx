@@ -13,48 +13,58 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-primary/5">
+      <section className="relative overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-primary/10 via-background to-primary/5">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+            style={{ backgroundImage: 'url(/hero-bg.png)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background/80 to-primary/20" />
+        </div>
+
         {/* Decorative background elements */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden z-0">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute top-60 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute bottom-20 right-1/3 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-full mb-6 animate-pulse-slow">
-              <Droplet className="w-10 h-10 text-primary-foreground" />
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-primary rounded-full mb-8 animate-pulse-slow shadow-2xl">
+              <Droplet className="w-12 h-12 text-primary-foreground" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-8 leading-tight">
               {t("hero.title")}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
               {t("hero.subtitle")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button
                 onClick={() => navigate("/donate")}
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-card hover:shadow-card-hover transition-smooth text-lg px-8"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-card hover:shadow-card-hover transition-smooth text-xl px-10 py-7"
               >
-                <Droplet className="mr-2 h-5 w-5" />
+                <Droplet className="mr-2 h-6 w-6" />
                 {t("hero.donateBtn")}
               </Button>
               <Button
                 onClick={() => navigate("/need-blood")}
                 size="lg"
                 variant="outline"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth text-lg px-8"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth text-xl px-10 py-7"
               >
-                <HeartPulse className="mr-2 h-5 w-5" />
+                <HeartPulse className="mr-2 h-6 w-6" />
                 {t("hero.needBtn")}
               </Button>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
       </section>
 
       {/* About Section */}
